@@ -1,12 +1,12 @@
 ---
 layout: slides
 title: Animating Data Visualizations
-theme: blood
+theme: league
 transition: slide
 ---
 
 {% for slide in site.slides %}
-<section>
+<section data-background="/images/{{slide.background}}">
     {{ slide.content }}
 </section>
 {% endfor %}
