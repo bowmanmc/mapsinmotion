@@ -1,0 +1,41 @@
+{
+    "name": "mapsinmotion",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "jekyll": "jekyll build --source src --destination build",
+        "jekyll:watch": "nodemon -V -w src -e html,md,png,jpg,gif,svg,yml,xml,js,css,yml --ignore src/sass -x \"npm run jekyll\"",
+        "server:dev": "babel-node tools/runBrowserSync.js",
+        "start": "npm-run-all --parallel server:dev jekyll:watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.1",
+        "browser-sync": "^2.23.5",
+        "nodemon": "^1.14.11",
+        "npm-run-all": "^4.1.2",
+        "reveal.js": "^3.6.0",
+        "rimraf": "^2.6.2"
+    },
+    "babel": {
+        "presets": [
+            [
+                "env",
+                {
+                    "targets": {
+                        "browsers": [
+                            "last 2 versions",
+                            "safari >= 7"
+                        ]
+                    }
+                }
+            ]
+        ]
+    }
+}
