@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-      {% if page.title %}
-        {{ page.title }} | {{ site.title }}
-      {% else %}
         {{ site.title }}
-      {% endif %}
     </title>
     <meta name="author" content="{{ site.author }}" />
     <!-- Description -->
@@ -42,10 +38,16 @@
     <![endif]-->
 
     <style>
-        h1,h2,h3,h4,h5,h6,p {
+        h1,h2,h3,h4,h5,h6,p,ul {
             /*background-color: #003087;*/
             /*background-color: rgba(0,48,135,0.8);*/
             background-color: rgba(64,92,134,0.8);
+        }
+        .reveal ol, .reveal dl, .reveal ul {
+            display: block;
+            list-style: none;
+            margin-left: 0;
+            text-align: center;
         }
     </style>
   </head>
