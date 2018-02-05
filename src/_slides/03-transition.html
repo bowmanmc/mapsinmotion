@@ -24,5 +24,45 @@ background: earthview/google-earth-view-1170.jpg
 </section>
 
 <section>
-    <h2>Example - State Morphing</h2>
+    <img src="/images/states-morph-static.gif" />
+    <p class="caption">
+        <a href="https://codepen.io/webslingerm/full/WMwQOG/">https://codepen.io/webslingerm/full/WMwQOG/</a>
+    </p>
+</section>
+
+<section>
+    <img src="/images/states-morph-animated.gif" />
+    <p class="caption">
+        <a href="https://codepen.io/webslingerm/full/WMwQOG/">https://codepen.io/webslingerm/full/WMwQOG/</a>
+    </p>
+</section>
+
+<section>
+    <pre><code>
+<svg id="morphSvg" viewBox="0 0 1000 1000">
+    <path id="morphStage" />
+    <path id="morphAK" visibility="hidden" d="..." />
+    <path id="morphAL" visibility="hidden" d="..." />
+    <path id="morphAR" visibility="hidden" d="..." />
+</svg>
+    </code></pre>
+</section>
+
+<section>
+    <pre><code data-noescape>
+let tl = new TimelineMax({repeat: -1});
+for (let i = 0; i < states.length; i++) {
+    tl.to(
+        '#morphStage',
+        0.5,
+        {morphSVG:`#morph${states[i]}`},
+        "+=2.0"
+    );
+}
+	</code></pre>
+</section>
+
+<section>
+    <h2>GreenSock Animation Platform</h2>
+    <p><a href="https://greensock.com">https://greensock.com</a>
 </section>
