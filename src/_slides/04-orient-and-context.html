@@ -21,3 +21,49 @@ background: earthview/google-earth-view-1484.jpg
         <li>Overview Map</li>
     </ul>
 </section>
+
+<section>
+    <img src="/images/Zoom2Bounds-Bostock.gif" alt="Zoom to Bounding Box by Mike Bostock" />
+    <p class="caption">
+        By Mike Bostock -
+        <a href="https://bl.ocks.org/mbostock/4699541">https://bl.ocks.org/mbostock/4699541</a>
+    </p>
+</section>
+
+<section>
+    <pre><code>
+var bounds = path.bounds(d),
+    dx = bounds[1][0] - bounds[0][0],
+    dy = bounds[1][1] - bounds[0][1],
+    x = (bounds[0][0] + bounds[1][0]) / 2,
+    y = (bounds[0][1] + bounds[1][1]) / 2,
+    scale = .9 / Math.max(dx / width, dy / height),
+    translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+g.transition()
+    .duration(750)
+    .style("stroke-width", 1.5 / scale + "px")
+    .attr("transform",
+          "translate(" + translate + ")scale(" + scale + ")");
+    </code></pre>
+</section>
+
+<section>
+    <h3>Why use d3.transition instead of CSS?</h3>
+</section>
+
+<section>
+    <h3>D3 transitions can be...</h3>
+    <ul>
+        <li>Chained together</li>
+        <li>Interpolation</li>
+        <li>Interrupted</li>
+    </ul>
+
+    <p>
+        <a href="https://github.com/d3/d3-transition">https://github.com/d3/d3-transition</a>
+        <br />
+        <a href="https://github.com/d3/d3-interpolate">https://github.com/d3/d3-interpolate</a>
+    </p>
+
+</section>
