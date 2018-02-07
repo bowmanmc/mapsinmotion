@@ -7,15 +7,91 @@ background: earthview/google-earth-view-1923.jpg
 </section>
 
 <section>
-    <img src="/images/buffalo-esri.gif" alt="ESRI Story Map" />
+    <img src="/images/windmap-deckgl.gif" alt="Deck.gl - Windmap" />
     <p class="caption">
-        <a href="https://thebuffalotrail.maps.arcgis.com/apps/Cascade/index.html?appid=1806faa8349048c891576d4a83a7a8ac">https://thebuffalotrail.maps.arcgis.com/apps/Cascade/index.html?appid=1806faa8349048c891576d4a83a7a8ac</a>
+        <a href="http://uber.github.io/deck.gl/examples/wind/">http://uber.github.io/deck.gl/examples/wind/</a>
     </p>
 </section>
 
 <section>
-    <img src="/images/taxis-deckgl.gif" alt="Deck.gl - WebGL Map" />
+    <h3>What Happened?</h3>
+    <p>
+        <ul>
+            <li>Large Data</li>
+            <li>Explain Visually</li>
+            <li>Show the Data</li>
+        </ul>
+    </p>
+</section>
+
+<section>
+    <img src="/images/taxis-deckgl.gif" alt="Deck.gl - Taxi Map" />
     <p class="caption">
         <a href="https://uber.github.io/deck.gl/#/examples/custom-layers/trip-routes">https://uber.github.io/deck.gl/#/examples/custom-layers/trip-routes</a>
+    </p>
+</section>
+
+<section>
+    <pre><code>
+&lt;MapGL {...viewport}
+    mapStyle="mapbox://styles/mapbox/dark-v9"
+    onViewportChange={this._onViewportChange.bind(this)}
+    mapboxApiAccessToken={MAPBOX_TOKEN}&gt;
+
+    &lt;DeckGLOverlay
+        viewport={viewport}
+        buildings={buildings}
+        trips={trips}
+        trailLength={180}
+        time={time} /&gt;
+&lt;/MapGL&gt;
+    </code></pre>
+</section>
+
+<section>
+    <pre><code>
+const layers = [
+    new TripsLayer({
+        id: 'trips',
+        data: trips,
+        getPath: d => d.segments,
+        getColor: d => (d.vendor === 0 ? [253, 128, 93] : [23, 184, 190]),
+        opacity: 0.3,
+        strokeWidth: 2,
+        trailLength,
+        currentTime: time
+    }),
+    // TripsLayer is full of WebGL rendering code
+    </code></pre>
+</section>
+
+<section>
+    <pre><code class="javascript">
+    // PolygonLayer is built-in. Just send it some GeoJSON
+    new PolygonLayer({
+        id: 'buildings',
+        data: buildings,
+        extruded: true,
+        wireframe: false,
+        fp64: true,
+        opacity: 0.5,
+        getPolygon: f => f.polygon,
+        getElevation: f => f.height,
+        getFillColor: f => [74, 80, 87]
+    })
+];
+return &lt;DeckGL {...viewport} layers={layers} /&gt;
+    </code></pre>
+</section>
+
+<section>
+    <h3>Lots of Options for Canvas/WebGL Animations</h3>
+    <p>
+        <ul>
+            <li><a href="https://uber.github.io/deck.gl">https://uber.github.io/deck.gl</a></li>
+            <li><a href="https://github.com/mapbox/mapbox-gl-js">https://github.com/mapbox/mapbox-gl-js</a></li>
+            <li><a href="https://cesiumjs.org/">https://cesiumjs.org</a></li>
+            
+        </ul>
     </p>
 </section>
