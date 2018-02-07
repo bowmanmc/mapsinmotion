@@ -21,8 +21,48 @@ background: earthview/google-earth-view-1825.jpg
 </section>
 
 <section>
+    <h3>Traditional Use of Animation on Maps</h3>
+    <p>Weather/Radar Maps</p>
+</section>
+
+<section>
     <img src="/images/ice-mastermaps.gif" alt="Melting Ice - Master Maps" />
     <p class="caption">
         By Master Maps - <a href="http://blog.mastermaps.com/2015/10/mapping-arctic-sea-ice.html">http://blog.mastermaps.com/2015/10/mapping-arctic-sea-ice.html</a>
+    </p>
+</section>
+
+<section>
+    <h3>D3 in Node.js</h3>
+</section>
+
+<section>
+    <pre><code>
+const d3 = require('d3');
+...
+jsdom.env({
+    html: '', src: [d3],
+    done: function (err, window) {
+        ...
+        var svg = d3.select(window.document)
+            .select('body').append('svg');
+        ...
+        var output = svg.node().parentNode.innerHTML;
+        fs.writeFileSync('./d3output.svg', output);
+    }
+});
+    </code></pre>
+</section>
+
+<section>
+    <h3>Server Side Rendering</h3>
+    <p>
+        <ul>
+            <li>jsdom - <a href="https://github.com/jsdom/jsdom">https://github.com/jsdom/jsdom</a></li>
+            <li>Headless Chrome - <a href="https://developers.google.com/web/updates/2017/04/headless-chrome">https://developers.google.com/web/updates/2017/04/headless-chrome</a></li>
+        </ul>
+    </p>
+    <p>
+        <a href="https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c">Command-Line Cartography</a> - Mike Bostock
     </p>
 </section>
