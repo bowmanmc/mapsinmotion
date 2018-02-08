@@ -15,5 +15,51 @@ background: earthview/google-earth-view-1778.jpg
 </section>
 
 <section>
-    <h3>Research about perception response time</h3>
+    <h3>Motion Helps Focus Attention</h3>
+    <p>
+        <ul>
+            <li>Motion</li>
+            <li>Form</li>
+            <li>Color (contrast)</li>
+        </ul>
+    </p>
+</section>
+
+<section>
+    <img src="/images/pulse-nocontrast.gif" />
+    <p class="caption">
+        <a href="https://codepen.io/webslingerm/pen/GQNBpQ">https://codepen.io/webslingerm/pen/GQNBpQ</a>
+    </p>
+</section>
+
+<section>
+    <img src="/images/pulse-contrast.gif" />
+    <p class="caption">
+        <a href="https://codepen.io/webslingerm/pen/GQNBpQ">https://codepen.io/webslingerm/pen/GQNBpQ</a>
+    </p>
+</section>
+
+<section>
+    <pre><code>
+.selected {
+    @extend .pin;
+    fill: $color-selected;
+    stroke: lighten($color-selected, 25%);
+    animation: pulse 0.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulse {
+    0% { r: 3; }
+    100% { r: 5; }
+}
+    </code></pre>
+</section>
+
+<section>
+    <p>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/CSS_JavaScript_animation_performance">https://developer.mozilla.org/en-US/Apps/Fundamentals/Performance/CSS_JavaScript_animation_performance</a></li>
+        </ul>
+    </p>
 </section>
